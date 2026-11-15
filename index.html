@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#182b49">
+  <title>MailChat — Your people, one message away</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="brand-icon">M</span><span>MailChat</span></div><span class="tagline">Email accounts. Private conversations.</span></header>
+    <section id="authView" class="auth-layout">
+      <div class="welcome">
+        <div class="eyebrow">WELCOME TO MAILCHAT</div>
+        <h1>Your inbox.<br><em>Your conversations.</em></h1>
+        <p>Create an account with your email address and connect with other MailChat members through private messages.</p>
+        <div class="feature"><span>✉</span><div><b>Your own account</b><small>Sign in with your email and password.</small></div></div>
+        <div class="feature"><span>◉</span><div><b>Private one-to-one chats</b><small>Messages are visible to the people in the conversation.</small></div></div>
+      </div>
+      <div class="auth-card">
+        <div class="tabs"><button id="loginTab" class="tab active">Sign in</button><button id="registerTab" class="tab">Create account</button></div>
+        <form id="authForm">
+          <div id="nameField" class="field hidden"><label for="name">Your name</label><input id="name" autocomplete="name" maxlength="60" placeholder="e.g. Joseph"></div>
+          <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters"></div>
+          <button class="primary full" id="authSubmit">Sign in</button><p id="authError" class="error" role="alert"></p>
+        </form>
+        <p class="fineprint">Never share your password with anyone. MailChat stores a secure password hash, not your readable password.</p>
+      </div>
+    </section>
+
+    <section id="appView" class="app-layout hidden">
+      <aside class="sidebar">
+        <div class="profile"><div class="avatar" id="myAvatar">M</div><div class="profile-text"><b id="myName">Member</b><small id="myEmail"></small></div><button id="logout" class="logout">Log out</button></div>
+        <div class="search-title">FIND PEOPLE</div>
+        <input id="search" class="search" placeholder="Search name or email…" autocomplete="off">
+        <div id="searchResults" class="people"></div>
+        <div class="search-title recent-title">YOUR CHATS</div>
+        <div id="chatHint" class="hint">Search for a MailChat member to start a conversation.</div>
+      </aside>
+      <section class="chat-panel">
+        <div id="emptyChat" class="empty-chat"><div class="empty-icon">✉</div><h2>Your conversations start here</h2><p>Find a member on the left and send your first message.</p></div>
+        <div id="activeChat" class="active-chat hidden">
+          <div class="chat-header"><div class="avatar" id="friendAvatar">?</div><div><b id="friendName">Member</b><small id="friendEmail"></small></div></div>
+          <div id="messages" class="messages"></div>
+          <form id="messageForm" class="composer"><input id="messageInput" maxlength="2000" placeholder="Write a message…" autocomplete="off" required><button class="primary">Send</button></form>
+        </div>
+      </section>
+    </section>
+    <footer>MailChat <span>•</span> Be kind. Keep conversations respectful.</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
